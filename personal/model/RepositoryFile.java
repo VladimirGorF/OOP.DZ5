@@ -20,27 +20,26 @@ public class RepositoryFile implements Repository {
         }
         return users;
     }
+
     @Override
     public void UpdateUser(User user, Fields field, String param) {
-        if(field == Fields.FIO) {
+        if (field == Fields.FIO) {
             user.setLastName(param);
-        }
-        else if(field == Fields.NAME) {
+        } else if (field == Fields.NAME) {
             user.setFirstName(param);
-        }
-        else if(field == Fields.TELEPHONE) {
+        } else if (field == Fields.TELEPHONE) {
             user.setPhone(param);
         }
         saveUser(user);
     }
+
     private void saveUser(User user) {
         List<String> lines = new ArrayList<>();
         List<User> users = getAllUsers();
-        for (User item: users) {
-            if(user.getId().equals(item.getId())) {
+        for (User item : users) {
+            if (user.getId().equals(item.getId())) {
                 lines.add(mapper.map(user));
-            }
-            else {
+            } else {
                 lines.add(mapper.map(item));
             }
         }
@@ -52,7 +51,7 @@ public class RepositoryFile implements Repository {
         List<String> lines = new ArrayList<>();
         List<User> delUsers = users;
         System.out.println("Работает репозиторий:  маппер создает новыe lines для записи...");
-        for (User item: delUsers) {
+        for (User item : delUsers) {
             lines.add(mapper.map(item));
         }
         fileOperation.saveAllLines(lines);
@@ -66,7 +65,7 @@ public class RepositoryFile implements Repository {
         int max = 0;
         for (User item : users) {
             int id = Integer.parseInt(item.getId());
-            if (max < id){
+            if (max < id) {
                 max = id;
             }
         }
@@ -75,12 +74,22 @@ public class RepositoryFile implements Repository {
         user.setId(id);
         users.add(user);
         List<String> lines = new ArrayList<>();
-        for (User item: users) {
+        for (User item : users) {
             lines.add(mapper.map(item));
         }
         fileOperation.saveAllLines(lines);
         return id;
     }
 
-   
+    @Override
+    public void saveOld() {
+        List<User> users = getAllUsers();
+        List<String> lines = new ArrayList<>();
+        for (User item : users) {
+            lines.add(mapper.mapOld(item));
+        }
+        fileOperation.saveAllLines(lines);
+        System.out.println("Форматирование завершено!");
+    }
+
 }

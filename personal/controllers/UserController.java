@@ -19,6 +19,12 @@ public class UserController {
         validate.checkNumber(user.getPhone());
         repository.CreateUser(user);
     }
+
+    public void saveOldFormat() throws Exception {
+        repository.saveOld();
+    }
+
+
     public void updateUser(User user, Fields field, String param) throws Exception {
         if(field == Fields.TELEPHONE) {
             validate.checkNumber(param);

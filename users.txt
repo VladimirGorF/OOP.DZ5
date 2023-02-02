@@ -1,2 +1,6 @@
-1,Vladimir,Gorbunov,+79261745746
-2,Svetlana,Voroncova,+78345622319
+1; Vladimir; Gorbunov; +79261745746
+4; Petra; Bessarabiya; +79251634579
+5; Inokentiy; Petrov; +84567342542
+6; Fox; Solo; +85673562451
+7; Sabrina; baraboshkin; +76784563782
+8; v; c; +76895764534

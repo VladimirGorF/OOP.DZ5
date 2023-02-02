@@ -6,7 +6,8 @@ public enum Commands {
     CREATE,
     UPDATE,
     LIST,
-    HELP,
     DELETE,
+    FORMAT,
+    HELP,
     EXIT
 }
