@@ -46,6 +46,9 @@ public class ViewUser {
                     case FORMAT:
                         format();
                         break;
+                    case JSON:
+                        formatJ();
+                        break;
                     case HELP:
                         showHelp();
                         break;
@@ -54,6 +57,10 @@ public class ViewUser {
                 System.out.println("Произошла ошибка " + ex.toString());
             }
         }
+    }
+
+    private void formatJ() {
+        userController.saveJsonFormat();
     }
 
     private void read() throws Exception {

@@ -8,6 +8,7 @@ public enum Commands {
     LIST,
     DELETE,
     FORMAT,
+    JSON,
     HELP,
     EXIT
 }

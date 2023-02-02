@@ -20,6 +20,11 @@ public class UserMapper {
             return new User(lines[0], lines[1], lines[2], lines[3]);
         }
     }
+
+    public String mapJson(User user) {
+        return String.format("{\"id\":\"%s\", \"Name\":\"%s\", \"LastName\":\"%s\", \"Phone\":\"%s\"}", user.getId(), user.getFirstName(), user.getLastName(), user.getPhone());
+    }
 }
 
 
+// {" ФИО":"Иванов Сергей", "Дата рождения":"09.03.1975"}

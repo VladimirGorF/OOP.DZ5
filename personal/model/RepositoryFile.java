@@ -89,7 +89,18 @@ public class RepositoryFile implements Repository {
             lines.add(mapper.mapOld(item));
         }
         fileOperation.saveAllLines(lines);
-        System.out.println("Форматирование завершено!");
+        System.out.println("Форматирование OLD завершено!");
+    }
+
+    @Override
+    public void saveJson() {
+        List<User> users = getAllUsers();
+        List<String> lines = new ArrayList<>();
+        for (User item : users) {
+            lines.add(mapper.mapJson(item));
+        }
+        fileOperation.saveAllLines(lines);
+        System.out.println("Форматирование JSON завершено!"); 
     }
 
 }

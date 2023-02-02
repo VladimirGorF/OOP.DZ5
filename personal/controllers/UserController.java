@@ -63,4 +63,8 @@ public class UserController {
     public List<User> getUsers() throws Exception {
         return repository.getAllUsers();
     }
+
+    public void saveJsonFormat() {
+        repository.saveJson();
+    }
 }
